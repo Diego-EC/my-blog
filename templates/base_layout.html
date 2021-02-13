@@ -5,13 +5,15 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="pragma" content="no-cache" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Articles</title>
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
-    <div class="wrapper">
-        <h1><a href="{% url 'home' %}">Articles</a></h1>
+    <header class="wrapper">
+        <h1><a href="{% url 'home' %}"><img src="{% static 'logo_blog.png' %}" alt="logo" /></a></h1>
         <nav>
             <ul>
                 {% if user.is_authenticated %}
@@ -28,6 +30,8 @@
                 {% endif %}
             </ul>
         </nav>
+    </header>
+    <div class="wrapper">
         {% block content %}
         {% endblock %}
     </div>
